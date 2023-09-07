@@ -6,10 +6,10 @@
     $keyword = $_GET["keyword"];
 
     //get all jokes in table and display to webpage
-    $sql = "SELECT JokeID, Joke_question, Joke_answer FROM Jokes WHERE Joke_question LIKE \"%".$keyword."%\"";
+    $sql = "SELECT JokeID, Joke_question, Joke_answer FROM Jokes WHERE Joke_question LIKE \"%$keyword%\"";
     $result = $mysqli->query($sql);
 
-    echo "<h2>Show all jokes with the word \"".$keyword."\"</h2>";
+    echo "<h2>Show all jokes with the word \"$keyword\"</h2>";
     echo "<p><a href=\"/navtargets/Jokes%20Website\">Return to search page</a></p>";
     if($result->num_rows > 0){
         while($row = $result->fetch_assoc()){

@@ -31,5 +31,16 @@
 
             <input type="submit" value="Submit">
         </form>
+
+        <hr>
+
+        <form action="add_joke.php">
+            Please enter a new joke here:<br>
+            <input type="text" name="joke_question" value=""><br>
+
+            Please enter the answer to the new joke here:<br>
+            <input type="text" name="joke_answer" value=""><br>
+            <input type="submit" value="Submit">
+        </form>
     </body>
 </html>
