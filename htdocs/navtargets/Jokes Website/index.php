@@ -5,6 +5,7 @@
 
     <body>
         <h1>Jokes page</h1>
+        <a href="/">Back to navigation</a>
 
         <?php
 
