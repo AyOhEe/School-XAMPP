@@ -10,7 +10,6 @@ locale/
 mailoutput/
 mailtodisk/
 MercuryMail
-mysql/
 perl/
 php/
 phpMyAdmin/
@@ -23,6 +22,13 @@ webdav/
 bin/
 
 htdocs/xampp
+
+mysql/bin
+mysql/share
+mysql/*.*
+mysql/THIRDPARTY
+mysql/COPYING
+mysql/CREDITS
 
 *.exe
 *.bat
