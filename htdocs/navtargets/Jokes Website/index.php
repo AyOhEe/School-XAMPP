@@ -25,11 +25,30 @@
         */
         ?>
 
-        <form action="search_keyword.php">
-            Please enter a keyword to search for:<br>
-            <input type="text" name="keyword" value="Chicken"><br>
+        <form class="form-horizontal" action="search_keyword.php">
+            <fieldset>
 
-            <input type="submit" value="Submit">
+                <!-- Form Name -->
+                <legend>Search for a joke</legend>
+
+                <!-- Search input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="keyword">Search Input</label>
+                    <div class="col-md-5">
+                        <input id="keyword" name="keyword" type="search" placeholder="e.g. Chicken" class="form-control input-md" required="">
+                        <p class="help-block">Enter a word to search for in the Jokes table</p>
+                    </div>
+                </div>
+
+                <!-- Button -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="submit"></label>
+                    <div class="col-md-4">
+                        <button id="submit" name="submit" class="btn btn-primary">Search</button>
+                    </div>
+                </div>
+
+            </fieldset>
         </form>
 
         <hr>
