@@ -1,8 +1,5 @@
 <?php
 
-    //connect to the database
-    include "db.php";
-
     //get the joke data
     $joke_question = $_GET["joke_question"];
     $joke_answer = $_GET["joke_answer"];
@@ -14,13 +11,21 @@
     
     echo "<p><a href=\"/navtargets/Jokes%20Website\">Return to search page</a></p>";
 
-    //add new joke
-    $sql = "INSERT INTO Jokes VALUES (NULL, '$joke_question', '$joke_answer')";
-    $result = $mysqli->query($sql);
 
-    //close db connection (search_all_jokes makes a new one)
+    //connect to the database
+    include "db.php";
+
+    //add new joke
+    $sql = "INSERT INTO Jokes VALUES (NULL, ?, ?)";
+    $stmt = $mysqli->prepare($sql);
+    $stmt->bind_param("ss", $joke_question, $joke_answer);
+    $result = $stmt->execute() or die(mysqli_error());
+    $stmt->close();
+
+    //close db connection
     $mysqli->close();
 
+    
     //show all jokes in the database
     include "search_all_jokes.php";
 ?>

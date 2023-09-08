@@ -2,12 +2,17 @@
     //connect to the database
     include "db.php";
 
-    //get the keyword parameter
+    //get the keyword match pattern
     $keyword = $_GET["keyword"];
+    $pattern = "%".$keyword."%";
 
     //get all jokes in table and display to webpage
-    $sql = "SELECT JokeID, Joke_question, Joke_answer FROM Jokes WHERE Joke_question LIKE \"%$keyword%\"";
-    $result = $mysqli->query($sql);
+    $sql = "SELECT JokeID, Joke_question, Joke_answer FROM Jokes WHERE Joke_question LIKE ?";
+    $stmt = $mysqli->prepare($sql);
+    $stmt->bind_param("s", $pattern);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $stmt->close();
 
     echo "<h2>Show all jokes with the word \"$keyword\"</h2>";
     echo "<p><a href=\"/navtargets/Jokes%20Website\">Return to search page</a></p>";
