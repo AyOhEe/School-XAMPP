@@ -41,3 +41,7 @@ readme_en.txt
 uninstall.dat
 xampp-control.ini
 xampp-control.log
+mysql/data/mysql_error.log
+mysql/data/mysql.pid
+mysql/data/ibtmp1
+mysql/data/ib_logfile0
