@@ -1,3 +1,8 @@
+
+<head>
+    <link rel="stylesheet" href="/bootstrap-3-3-6.css">
+</head>
+
 <?php
 
     //get the joke data
