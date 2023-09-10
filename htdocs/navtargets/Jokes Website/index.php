@@ -1,6 +1,6 @@
-<html>
+<html style="margin-left: 20px; margin-right: 20px">
     <head>
-
+        <link rel="stylesheet" href="/bootstrap-3-3-6.css">
     </head>
 
     <body>
@@ -53,13 +53,40 @@
 
         <hr>
 
-        <form action="add_joke.php">
-            Please enter a new joke here:<br>
-            <input type="text" name="joke_question" value=""><br>
+        <form class="form-horizontal" action="add_joke.php">
+            <fieldset>
 
-            Please enter the answer to the new joke here:<br>
-            <input type="text" name="joke_answer" value=""><br>
-            <input type="submit" value="Submit">
+                <!-- Form Name -->
+                <legend>Form Name</legend>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="joke_question">Joke</label>  
+                    <div class="col-md-6">
+                        <input id="joke_question" name="joke_question" type="text" placeholder="" class="form-control input-md">
+                        <span class="help-block">Enter the first half of your joke here</span>  
+                    </div>
+                </div>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="joke_answer">Answer</label>  
+                    <div class="col-md-5">
+                        <input id="joke_answer" name="joke_answer" type="text" placeholder="" class="form-control input-md">
+                        <span class="help-block">Enter the answer or punchline to your joke here</span>  
+                    </div>
+                </div>
+
+                <!-- Button -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="submit"></label>
+                    <div class="col-md-4">
+                        <button id="submit" name="submit" class="btn btn-primary">Add a new joke</button>
+                    </div>
+                </div>
+
+            </fieldset>
         </form>
+
     </body>
 </html>
