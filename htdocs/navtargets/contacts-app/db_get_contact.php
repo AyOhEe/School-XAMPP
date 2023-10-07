@@ -13,13 +13,15 @@
             //get form data
             $uuid = $_GET["uuid"];
 
+            //run the query to find the contact with the given UUID
+            //using prepared queries prevents SQL injection attacks
             $sql = mysqli_prepare($mysqli, "SELECT * FROM contact WHERE UUID = ?");
             mysqli_stmt_bind_param($sql, "s", $uuid);
             mysqli_stmt_execute($sql);
             $result = mysqli_stmt_get_result($sql);
             $row = mysqli_fetch_assoc($result);
 
-
+            //display the contact's UUID, surname and forename as the page header
             echo "<h1> ID ".$row["UUID"].": ".$row["Surname"].", ".$row["Forename"]."</h1>";
         ?>
 
@@ -31,6 +33,7 @@
         <p>
             <?php
 
+                //display the rest of the contact details
                 echo "Telephone number: ".$row["Telephone_number"]."<br>";
                 echo "Mobile number: ".$row["Mobile_number"]."<br>";
                 echo "Email: ".$row["Email"]."<br>";

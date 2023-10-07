@@ -41,6 +41,8 @@
             $postcode = $_POST["postcode"];
             $department = $_POST["department"];
 
+            //run the query to create the new contact
+            //using prepared queries prevents SQL injection attacks
             $sql = mysqli_prepare($mysqli, "INSERT INTO contact
             (Forename, Surname, Telephone_number, Mobile_number, Email, Address, Postcode, Department)
             VALUES (?, ?, ?, ?, ?, ?, ?, ?)");

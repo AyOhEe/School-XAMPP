@@ -30,6 +30,10 @@
                 $postcode = nullIfEmpty($_POST["postcode"]);
                 $department = nullIfEmpty($_POST["department"]);
 
+                //run the query to replace any data that was given for the given contact
+                //using prepared queries prevents SQL injection attacks
+                //using COALESCE(?, field) means that if the given value was NULL, it will default
+                //to the value that was already present
                 $sql = mysqli_prepare($mysqli, "UPDATE contact
                 SET Forename = COALESCE(?, Forename),
                     Surname = COALESCE(?, Surname),

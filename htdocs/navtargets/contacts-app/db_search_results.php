@@ -20,12 +20,15 @@
             $surname = "%".$_POST["surname"]."%";
             $department = "%".$_POST["department"]."%";
 
+            //run the query to find all contacts similar to the search criteria
+            //using prepared queries prevents SQL injection attacks
             $sql = mysqli_prepare($mysqli, "SELECT UUID, Surname, Forename 
             FROM contact 
             WHERE forename LIKE ? AND surname LIKE ? AND department LIKE ?");
             mysqli_stmt_bind_param($sql, "sss", $forename, $surname, $department);
             mysqli_stmt_execute($sql);
 
+            //display all contacts found
             echo "<ul>";
             $result = mysqli_stmt_get_result($sql);
             while ($row = mysqli_fetch_assoc($result)){

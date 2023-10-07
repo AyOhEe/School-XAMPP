@@ -18,6 +18,8 @@
                 //get form data
                 $contact_id = $_POST["contact_id"];
 
+                //run the query to delete the given contact - using prepared queries prevents
+                //SQL injection attacks
                 $sql = mysqli_prepare($mysqli, "DELETE FROM contact WHERE UUID = ?");
                 mysqli_stmt_bind_param($sql, "s", $contact_id);
                 mysqli_stmt_execute($sql);
